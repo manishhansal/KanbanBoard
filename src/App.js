@@ -226,7 +226,16 @@ function App() {
                     }}>
                        <img style={{width:"100%", height:"100%"} } src='back-arrow.png' alt='back-arrow'/>
                   </button>
-                    <button style={myButton}>
+                    <button style={myButton} onClick={() => {
+                    setData((d) => {
+                      for (let i = 0; i < data.length; i++) {
+                        if (data[i].id === elm.id) {
+                          data[i].status = -1
+                        }
+                      }
+                      return [...d]
+                    })
+                    }}>
                       <img style={{width:"100%", height:"100%"} } src='delete.png' alt='delete'/>
                     </button>
                   </div>
